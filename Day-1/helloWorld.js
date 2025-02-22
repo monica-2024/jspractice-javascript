@@ -102,4 +102,125 @@ const arrayOfObjects = [
   },
 ];
 // print 'kaiser'
-console.log(arrayOfObjects[2].name);
+console.log(arrayOfObjects[2].name); //kaiser
+
+//2/22/2025
+const arrayOfObjects1 = [
+  { name: "phil", age: 23 },
+  { name: "marco", age: 20 },
+  {
+    name: "kaiser",
+    age: 16,
+  },
+  {
+    name: "miran",
+    age: 23,
+  },
+];
+// print phil's age
+console.log(arrayOfObjects1[0].age); //23
+console.log(arrayOfObjects1[2].name); //kaiser
+
+const arrayOfObjects2 = [
+  { name: "phil", hobbies: ["coding", "cycling", "singing"], age: 23 },
+  { name: "marco", hobbies: ["coding", "cycling", "playing game"], age: 20 },
+  {
+    name: "kaiser",
+    hobbies: ["coding", "playing gaming", "music"],
+    age: 16,
+  },
+  {
+    name: "miran",
+    hobbies: ["coding", "running"],
+    age: 23,
+  },
+];
+// print miran's hobbies
+console.log(arrayOfObjects2[3].hobbies); //[ 'coding', 'running' ]
+// print phil's first element of hobbies
+console.log(arrayOfObjects2[0].hobbies[0]); //coding
+// print marco's second element of hobbies
+
+// print kaiser's last element of hobbies
+// print miran's last element of hobbies
+
+//Oprator signs
+//&& and or || ,  equals operator A === B true  value or data types
+// !== not equal >= <=, < >
+
+//if name === "marco"; then change name to 'kaiser'
+
+let firstName = "marco";
+if (firstName === "marco") {
+  // === comparison
+
+  //this is the code that runs
+  //when the if condition is true
+  firstName = "kaiser"; // = assigning to value
+}
+console.log("firstName", firstName); //kaiser
+
+if (firstName === "kaiser") {
+  firstName = "miran";
+}
+console.log("firstName", firstName); //miran
+
+let score = 57;
+//if the score is less than 80
+//print "I need some help!"
+if (score > 80) {
+  console.log("I am doing great help!"); //I need some help!
+} else {
+  console.log("i need help");
+}
+
+let lunch = "sandwich";
+
+//if lunch is 'noodles'
+if (lunch === "noodles") {
+  console.log("i have noodles for lunch!");
+} else {
+  console.log("i do not like my lunch"); //I do not like my lunch
+}
+//print, ' i have noodles for lunch!'
+//else, ' i do not like my  lunch!'
+
+let number = 14;
+// if number is even
+if (number % 2 === 1) {
+  console.log("i am even!");
+} else {
+  console.log("i am odd");
+}
+//print ' i am even!'
+
+const arrayOfObjects3 = [
+  { name: "phil", age: 40 },
+  { name: "marco", age: 20 },
+  {
+    name: "kaiser",
+    age: 16,
+  },
+  {
+    name: "miran",
+    age: 23,
+  },
+];
+// if phil's age is less than 30 OR miran's age is greater than 20
+if (arrayOfObjects3[0].age < 30 || arrayOfObjects3[3].age > 20) {
+  console.log(arrayOfObjects3[0].name);
+  console.log(arrayOfObjects3[3].name);
+}
+
+// print phil and miran's name
+
+//if marco's age is less than 30 and kaiser's age is greater than 20
+const marcoStudent = arrayOfObjects3[1];
+const kaiserStudent = arrayOfObjects3[2];
+if (marcoStudent.age < 30 && kaiserStudent > 20) {
+  console.log(marcoStudent.name, kaiserStudent.name);
+} else {
+  console.log("either marco is older than 30 or kaiser is younger than 20");
+}
+//print marco and kaiser's name
+//else print 'either marco is older than 30 or kaiser is younger than 20'
