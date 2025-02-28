@@ -118,8 +118,8 @@ const arrayOfObjects1 = [
   },
 ];
 // print phil's age
-console.log(arrayOfObjects1[0].age); //23
-console.log(arrayOfObjects1[2].name); //kaiser
+console.log(arrayOfObjects1[0].age); // output 23
+console.log(arrayOfObjects1[2].name); //output kaiser
 
 const arrayOfObjects2 = [
   { name: "phil", hobbies: ["coding", "cycling", "singing"], age: 23 },
@@ -224,3 +224,49 @@ if (marcoStudent.age < 30 && kaiserStudent > 20) {
 }
 //print marco and kaiser's name
 //else print 'either marco is older than 30 or kaiser is younger than 20'
+
+//2/25/2025
+const foods = [
+  {
+    name: "hotdog",
+    categories: ["meat", "fast food", "quick eats"],
+    price: 100,
+  },
+  {
+    name: "cheeseburger",
+    categories: ["meat", "fast food", "quick eats"],
+    price: 300,
+  },
+  {
+    name: "french fries",
+    categories: ["vegetarian", "fast food", "quick eats"],
+    price: 100,
+  },
+  {
+    name: "cola",
+    categories: ["drink", "soda", "quick eats"],
+    price: 100,
+  },
+];
+
+// problem 1:  print the 2nd category for french fries
+console.log(foods[2].categories[1]); //fast food
+// problem 2:  print the price for cola.  price is in cents
+console.log(foods[3].price); //100
+// problem 3:  Print "A cheeseburger is $3"
+console.log("A", foods[1].name, "is", "$" + foods[1].price / 100); //"A cheeseburger is $3"
+// hint: foods is an array so use the correct index to find the object you want to work with
+//2/27/2025
+const drinkItem = "cola";
+if (foods[drinkItem] === "cola") {
+  console.log("Cola is in the menu.");
+} else {
+  console.log("Cola is not available");
+}
+
+const foodPrice = foods[0];
+if (foodPrice.price > 150) {
+  console.log("This", foodPrice.name, "is an expensive item");
+} else {
+  console.log("This", foodPrice.name, "is a cheap item");
+}
