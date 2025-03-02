@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="script.js"></script> -->
+    <script>
+      function changeText() {
+        document.getElementById("message").innerText = "JavaScript is fun!";
+        document.getElementById("greeting").innerText =
+          "You are now code-master!";
+      }
+
+      // Array of food items
+      const foods = [
+        "Pho",
+        "Korean Ramyun(Spicy)",
+        "Egg Jjim",
+        "Popeyes",
+        "Jja Jang Myun(only Choong Hwa Won)",
+        "Jjam Bbong(only Morak)",
+      ];
+      const hobbies = ["coding", "QA"];
+      function renderListMyHobbies() {
+        const ul = document.getElementById("hobby-list");
+        ul.innerHTML = null;
+        for (let i = 0; i < hobbies.length; i++) {
+          const li = document.createElement("li");
+          li.textContent = hobbies[i];
+          ul.appendChild(li);
+        }
+      }
+
+      // TO-DO
+      // 1. Get the <ul> element with id "food-list"
+      // 2. Create a <li> element for each food item in the array
+      // 3. Set the text content of each <li> element to a food item
+      // 4. Append each <li> element to the <ul> element
+      function renderListFavoriteFoods() {
+        const ul = document.getElementById("food-list");
+        ul.innerHTML = null;
+        for (let i = 0; i < foods.length; i++) {
+          const li = document.createElement("li");
+          li.textContent = foods[i];
+          ul.appendChild(li);
+        }
+      }
+    </script>
+    <title>Marco's Web Page</title>
+  </head>
+  <body>
+    <h1 id="greeting">Hello!</h1>
+    <p>Welcome to my first web page!</p>
+    <br /><br />
+    <h2 id="message">coding is hard!</h2>
+    <button id="special-btn" onclick="changeText()">after baum course</button>
+    <br /><br />
+
+    <h1 id="my-favorite-foods-header">My Favorite Foods</h1>
+    <button onclick="renderListFavoriteFoods()">show my foods</button>
+    <ul id="food-list"></ul>
+
+    <h1 id="my-hobbies-header">My Hobbies</h1>
+    <button onclick="renderListMyHobbies()">show my hobbies</button>
+    <ul id="hobby-list"></ul>
+    <!-- Change color of "My hobbies" header to your favorite color-->
+    <!-- Change color "show my hobbies" button to blue -->
+  </body>
+</html>
+<!-- need to use chrome -->
+
+<form onsubmit="return handleSubmit()">
+  <label for="username">Username:</label>
+  <input
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Enter your username"
+  />
+
+  <br /><br />
+
+  <label for="password">Password:</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter your password"
+  />
+
+  <br /><br />
+
+  <label for="agree">
+    <input type="checkbox" id="agree" /> I agree to the terms
+  </label>
+
+  <br /><br />
+
+  <button type="submit">Register</button>
+</form>
+<p id="error"></p>
+<p id="message-3"></p>
+<h1>Students</h1>
+<button onclick="">show students</button>
+<ul id="students-list"></ul>
