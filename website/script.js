@@ -51,3 +51,35 @@ function handleSubmit() {
 
   return false;
 }
+
+const students = [
+  { name: "Alice", age: 20 },
+  { name: "Bob", age: 21 },
+  { name: "Charlie", age: 22 },
+  { name: "David", age: 23 },
+  { name: "Eve", age: 24 },
+  { name: "Frank", age: 25 },
+  { name: "Grace", age: 26 },
+  { name: "Hank", age: 27 },
+  { name: "Ivy", age: 28 },
+  { name: "Jack", age: 29 },
+];
+
+// TO-DO
+// 1. Get the <ul> element with id "student-list"
+// 2. Create a <li> element for each student in the array
+// 3. Set the text content of each <li> element to a student's name and age
+// 4. Append each <li> element to the <ul> element
+
+function renderClassmatesList() {
+  //TODO; now
+  //create an array of classmates
+  //add each student's name as a li to render
+  const ul = document.getElementById("students-list");
+  ul.innerHTML = null;
+  for (let i = 0; i < students.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = students[i];
+    ul.appendChild(li);
+  }
+}

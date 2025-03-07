@@ -42,29 +42,29 @@ while (carIndex < cars.length) {
 }
 //only print "bmw"
 
-let carIndex1 = 0;
-while (carIndex1 < cars.length) {
-  if (cars[carIndex1] === "bmw");
-  {
-    console.log("found bmw!");
-    break;
-  }
-  carIndex1++;
-}
+// let carIndex1 = 0;
+// while (carIndex1 < cars.length) {
+//   if (cars[carIndex1] === "bmw");
+//   {
+//     console.log("found bmw!");
+//     break;
+//   }
+//   carIndex1++;
+// }
 
-let num = 1;
-while (num <= 5) {
-  console.log(num);
-  num++;
-}
-//1,2,3,4,5
+// let num = 1;
+// while (num <= 5) {
+//   console.log(num);
+//   num++;
+// }
+// //1,2,3,4,5
 
-let count = 5;
-while (count >= 1) {
-  console.log(count);
-  count--;
-}
-//5,4,3,2,1
+// let count = 5;
+// while (count >= 1) {
+//   console.log(count);
+//   count--;
+// }
+// //5,4,3,2,1
 
 const arr = [];
 for (let i = 0; i < arr.length; i++) {
@@ -312,7 +312,7 @@ console.log(countEven1, "even numbers", "and", countOdd1, "odd numbers");
 
 // Bonus Challenge
 // Use a for loop to print the lowest and largest number
-let lowest7 = numArr7[0];
+let lowest7 = numArr7[0]; // to see if negative numbers are there
 let largest7 = numArr7[0];
 for (let i = 0; i < numArr7.length; i++) {
   if (numArr7[i] < lowest7) {
@@ -323,3 +323,180 @@ for (let i = 0; i < numArr7.length; i++) {
   }
 }
 console.log(lowest7, "is the lowest and", largest7, "is the largest"); //2,9
+
+//3/4/2025
+//Operators
+
+let score = 85;
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 80) {
+  console.log("Grade: B");
+} else if (score >= 70) {
+  console.log("Grade: C");
+} else {
+  console.log("Grade: D");
+}
+// Output Grade: B {} is the block scope const inside the block is not accessible
+//Global scope is available every where
+
+const globalVariable = "I'm global-scoped!";
+if (true) {
+  let blockVariable = "I'm blocked-scoped!";
+  console.log(blockVariable);
+}
+// console.log(blockVariable);//error! blockVariable is not defined outside the loop
+console.log(globalVariable); // 'I am global-scoped!'
+
+const number = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+// using a for loop, print `foo` if the number is divisible by 2, print `bar` if
+// number is divisible by 3 and print `foobar` if number is divisbile by 2 && 3
+
+for (let i = 0; i < number.length; i++) {
+  if (number[i] % 2 === 0 && number[i] % 3 === 0) {
+    console.log("foobar");
+  } else if (number[i] % 2 === 0) {
+    console.log("foo");
+  } else if (number[i] % 3 === 0) {
+    console.log("bar");
+  } else {
+    console.log(number[i]);
+  }
+}
+//output
+//  1,foo,bar,foo,5,foobar,7,foo,bar,foo,
+// 11,foobar,13,foo,bar,foo,17,foobar,19,foo
+//3/6/2025
+
+const numbers = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+// using a for loop, print `foo` if the number is divisible by 2, print `bar` if
+// number is divisible by 3 and print `foobar` if number is divisbile by 2 && 3
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] % 2 === 0 && numbers[i] % 3 === 0) {
+    console.log(numbers[i], "foodbar");
+  } else if (numbers[i] % 2 === 0) {
+    console.log(numbers[i], "foo");
+  } else if (numbers[i] % 3 === 0) {
+    console.log(numbers[i], "bar");
+  }
+}
+//output 2 foo,3 bar,4 foo,6 foodbar,8 foo,9 bar,10 foo,12 foodbar,14 foo,15 bar,16 foo,18 foodbar,20 foo
+
+// using a for loop, print only those that in the coding class
+
+const scores = [93, 28, 49, 90, 100, 54, 98, 89, 38, 75, 67, 77, 80];
+// using a for loop
+// print the grade associated with each number
+// A = 94-100
+// B = 85-93
+// C = 75-84
+// D = 65-74
+// F = below 65
+for (const score of scores) {
+  console.log(score);
+}
+for (let i = 0; i < scores.length; i++) {
+  if (scores[i] >= 94 && scores[i] <= 100) {
+    console.log(scores[i], "Grade A");
+  } else if (scores[i] >= 85 && scores[i] <= 93) {
+    console.log(scores[i], "Grade B");
+  } else if (scores[i] >= 75 && scores[i] <= 84) {
+    console.log(scores[i], "Grade C");
+  } else if (scores[i] >= 65 && scores[i] <= 74) {
+    console.log(scores[i], "Grade D");
+  } else if (scores[i] < 65) {
+    console.log(scores[i], "Grade F");
+  }
+}
+//output 93 Grade B,28 Grade F,49 Grade F,90 Grade B,100 Grade A,54 Grade F,98 Grade A,89 Grade B,38 Grade F,75 Grade C
+//67 Grade D,77 Grade C,80 Grade C
+const songs = [
+  {
+    title: "bang bang bang",
+    artist: "big bang",
+    songCount: 48273,
+  },
+  {
+    title: "hello",
+    artist: "adele",
+    songCount: 4827,
+  },
+  {
+    title: "bye bye bye",
+    artist: "nsync",
+    songCount: 48272,
+  },
+  {
+    title: "gone",
+    artist: "justin timberlake",
+    songCount: 27374,
+  },
+];
+
+// using a for loop, print the title of the songs that a song count of greater 20000 and is an even number
+for (let i = 0; i < songs.length; i++) {
+  if (songs[i].songCount > 20000 && songs[i].songCount % 2 === 0) {
+    console.log(songs[i].title);
+  }
+}
+//output bye bye bye and gone
+// for (const song of songs) {
+//   console.log(song);
+// }
+
+// for (const x of songs) {
+//   console.log(x, title);
+// }
+
+// songs.forEach((song) => {
+//   console.log(song.title);
+// });
+
+const myConsoleLog = () => {
+  // function syntax
+  //code goes in
+  console.log("hello");
+};
+myConsoleLog(); //to call the function
+
+const add2Plus2 = () => {
+  console.log(2 + 2);
+};
+add2Plus2(); // whoever is calling the function is passing the data
+
+const callMyName = (name) => {
+  console.log(name);
+};
+callMyName("Monica");
+callMyName("Chris"); //Monica Chris together, infinite
+
+const callMyName1 = (firstName, LastName) => {
+  console.log(firstName, LastName);
+};
+callMyName1("ben", "kim");
+callMyName1("phil", "lee");
+callMyName1("monica", "x");
+
+const printSongTitle = (song) => {
+  console.log(song.title);
+};
+printSongTitle({
+  title: "bye bye bye",
+  artist: "nsync",
+  songCount: 48272,
+});
+
+//create a function that takes two numbers
+//and print the larger number
+const biggestNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    console.log(num1);
+  } else if (num2 > num1) {
+    console.log(num2);
+  }
+};
+biggestNumbers(1, 3);
