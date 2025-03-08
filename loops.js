@@ -370,23 +370,21 @@ for (let i = 0; i < number.length; i++) {
 // 11,foobar,13,foo,bar,foo,17,foobar,19,foo
 //3/6/2025
 
-const numbers = [
+const numbers1 = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
 // using a for loop, print `foo` if the number is divisible by 2, print `bar` if
 // number is divisible by 3 and print `foobar` if number is divisbile by 2 && 3
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] % 2 === 0 && numbers[i] % 3 === 0) {
-    console.log(numbers[i], "foodbar");
-  } else if (numbers[i] % 2 === 0) {
-    console.log(numbers[i], "foo");
-  } else if (numbers[i] % 3 === 0) {
-    console.log(numbers[i], "bar");
+for (let i = 0; i < numbers1.length; i++) {
+  if (numbers1[i] % 2 === 0 && numbers1[i] % 3 === 0) {
+    console.log(numbers1[i], "foodbar");
+  } else if (numbers1[i] % 2 === 0) {
+    console.log(numbers1[i], "foo");
+  } else if (numbers1[i] % 3 === 0) {
+    console.log(numbers1[i], "bar");
   }
 }
 //output 2 foo,3 bar,4 foo,6 foodbar,8 foo,9 bar,10 foo,12 foodbar,14 foo,15 bar,16 foo,18 foodbar,20 foo
-
-// using a for loop, print only those that in the coding class
 
 const scores = [93, 28, 49, 90, 100, 54, 98, 89, 38, 75, 67, 77, 80];
 // using a for loop
@@ -437,12 +435,25 @@ const songs = [
   },
 ];
 
-// using a for loop, print the title of the songs that a song count of greater 20000 and is an even number
+// 1. for loop, print the title of the songs that a song count of greater 20000 and is an even number
 for (let i = 0; i < songs.length; i++) {
   if (songs[i].songCount > 20000 && songs[i].songCount % 2 === 0) {
     console.log(songs[i].title);
   }
 }
+// 2. for of loop
+for (const x of songs) {
+  if (x.songCount > 20000 && x.songCount % 2 === 0) {
+    console.log(x.title);
+  }
+}
+// 3. forEach loop
+songs.forEach((x) => {
+  if (x.songCount > 20000 && x.songCount % 2 === 0) {
+    console.log(x.title);
+  }
+});
+
 //output bye bye bye and gone
 // for (const song of songs) {
 //   console.log(song);
@@ -499,4 +510,298 @@ const biggestNumbers = (num1, num2) => {
     console.log(num2);
   }
 };
-biggestNumbers(1, 3);
+biggestNumbers(1, 3); //output 3
+
+//3/8/2025
+const numbers = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+const multiplyTwonumbers = (num1, num2) => {
+  console.log(num1 * num2);
+};
+// multiplyTwonumbers(2, 6);
+
+//callback function
+numbers.forEach((num) => {
+  multiplyTwonumbers(num, num);
+});
+
+const sayHello = () => {
+  console.log("Hello");
+};
+
+const callAnyFunction = (func) => {
+  func();
+};
+
+callAnyFunction(sayHello);
+
+//forEach (important)
+//first it looks at the array
+//it starts to loop through it
+//and then for each element in the array
+//it executes the function that was passed into forEach
+
+const callBackFun = (num) => {
+  multiplyTwonumbers(num, num);
+};
+numbers.forEach(callBackFun);
+
+// for (let i = 0; i < numbers.length; i++) {
+//   const num1 = numbers[i];
+//   const num2 = numbers[i];
+//   console.log(num1 * num2);
+// } not common in professional field
+
+// I want you to create a function that takes each number and printwhether they are even or odd
+const oddOrEvenCheck = (num) => {
+  if (num % 2 === 0) {
+    console.log(num, "even");
+  } else {
+    console.log(num, "odd");
+  }
+};
+numbers.forEach(oddOrEvenCheck);
+
+// numbers.forEach(oddOrEvenCheck)((num) => {
+//   if (num % 2 === 0) {
+//     console.log(num, "even");
+//   } else {
+//     console.log(num, "odd");
+//   }
+// });
+
+songs.forEach((song) => {
+  console.log("song data", song.title);
+});
+
+//using forEach on songs, print the song title if the artist is 'justin timberlake'
+songs.forEach((x) => {
+  if (x.artist === "justin timberlake") {
+    console.log(x.title);
+  }
+});
+//using forEach on songs, print song titles for songs that have songCount over 20000
+songs.forEach((y) => {
+  if (y.songCount > 20000) {
+    console.log(y.title);
+  }
+});
+
+const testData = [
+  {
+    id: 1,
+    title: "Implement Login",
+    description: "Allow users to log in with email and password",
+    status: "To Do",
+    assignedTo: "user1@example.com",
+    boardId: 1,
+  },
+  {
+    id: 2,
+    title: "Design Landing Page",
+    description: "Create a responsive landing page with Tailwind CSS",
+    status: "In Progress",
+    assignedTo: "user2@example.com",
+    boardId: 1,
+  },
+  {
+    id: 3,
+    title: "Set Up Database",
+    description: "Configure Sequelize with SQLite for development",
+    status: "Done",
+    assignedTo: "user3@example.com",
+    boardId: 2,
+  },
+  {
+    id: 4,
+    title: "Create Board Model",
+    description: "Define the Board model with Sequelize",
+    status: "In QA",
+    assignedTo: "user4@example.com",
+    boardId: 2,
+  },
+  {
+    id: 5,
+    title: "Implement Drag-and-Drop",
+    description: "Enable moving work items between columns",
+    status: "To Do",
+    assignedTo: "user5@example.com",
+    boardId: 3,
+  },
+  {
+    id: 6,
+    title: "Set Up Authentication",
+    description: "Implement JWT-based authentication in the backend",
+    status: "In Progress",
+    assignedTo: "user1@example.com",
+    boardId: 3,
+  },
+  {
+    id: 7,
+    title: "Optimize Database Queries",
+    description: "Improve Sequelize queries for better performance",
+    status: "Done",
+    assignedTo: "user2@example.com",
+    boardId: 4,
+  },
+  {
+    id: 8,
+    title: "Integrate File Uploads",
+    description: "Allow users to upload attachments to work items",
+    status: "In QA",
+    assignedTo: "user3@example.com",
+    boardId: 4,
+  },
+  {
+    id: 9,
+    title: "Create API Documentation",
+    description: "Write API docs using Swagger or Postman",
+    status: "To Do",
+    assignedTo: "user4@example.com",
+    boardId: 5,
+  },
+  {
+    id: 10,
+    title: "Implement WebSockets",
+    description: "Enable real-time updates for work item status changes",
+    status: "In Progress",
+    assignedTo: "user5@example.com",
+    boardId: 5,
+  },
+];
+
+// using the testData array
+// use forEach to only print elements that have the status of 'Done'
+// you can choose to define your callback function as a variable
+// or write it directly into the forEach
+testData.forEach((task) => {
+  if (task.status === "Done") {
+    console.log(task);
+  }
+});
+
+testData.forEach(function (task) {
+  if (task.status === "Done") {
+    console.log(task);
+  }
+});
+const printDoneTasks = (task) => {
+  if (task.status === "Done") {
+    console.log(task);
+  }
+};
+testData.forEach(printDoneTasks);
+
+//they are done or prgress
+testData.forEach((task) => {
+  if (task.status === "Done" || task.status === "In Progress") {
+    console.log(task);
+  }
+});
+//print the total number of elemets that have the status done
+let doneCount = 0;
+testData.forEach((task) => {
+  if (task.status === "Done") {
+    doneCount++;
+  }
+});
+console.log(doneCount); //output 2
+
+// using the testData array
+// use forEach to only print count of each status
+// "To Do", "In Progress", "Done", "In QA"
+// you can choose to define your callback function as a variable
+// or write it directly into the forEach
+//to do :2 in progress: 1
+
+let countTodo = 0;
+let countInP = 0;
+let countDone = 0;
+let countInQa = 0;
+testData.forEach((task) => {
+  if (task.status === "To Do") {
+    countTodo++;
+  } else if (task.status === "In Progress") {
+    countInP++;
+  } else if (task.status === "Done") {
+    countDone++;
+  } else if (task.status === "In QA") {
+    countInQa++;
+  }
+});
+console.log("To Do", countTodo); //3
+console.log("In Progress", countInP); //3
+console.log("Done", countDone); //2
+console.log("In QA", countInQa); //2
+
+//array methods
+//array.forEach()
+//[].forEach()
+//[].push, it adds an element to the end of the array
+//[].pop, it moves the last element in the array
+const arr1 = [1, 2, 3];
+arr.push(4);
+console.log(arr);
+arr.pop();
+console.log(arr); //4
+
+//using the testData array
+//use the forEach method
+//and print an array of just the element that are "In QA"
+const inQA = [];
+testData.forEach((task) => {
+  if (task.status === "In QA") {
+    // inQA.push(task.id);
+    inQA.push(task);
+  }
+});
+console.log(inQA); //id4, id8
+
+//using the testData array
+//use the forEach method
+//if the board ID is 2
+//print the title
+const titles = [];
+testData.forEach((task) => {
+  if (task.boardId === 2) {
+    titles.push(task.title);
+  }
+});
+console.log(titles); //[ 'Set Up Database', 'Create Board Model' ]
+
+// When to use each:
+// Use forEach() when:
+
+// You need to perform an operation on each element in an array, and you don’t need to break early or access the index.
+// You prefer the clean syntax, and performance is not an issue for small-to-medium-sized arrays.
+// Use for loop when:
+
+// You need full control, like accessing the index, breaking early, or optimizing for performance.
+// You're iterating over large datasets or need custom loop logic.
+// Use for...of when:
+
+// You’re iterating over arrays or other iterable objects (like Maps or Sets), and you want to avoid dealing with indices.
+// You prefer cleaner, more readable code with direct access to values.
+
+const numbers2 = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+//print the sum of only odd numbers
+let sumOdd = 0;
+let oddN = 0;
+numbers2.forEach((num) => {
+  if (num % 2 !== 0) {
+    sumOdd = sumOdd + num;
+    oddN++;
+  }
+});
+console.log("sum of odd numbers is", sumOdd); // 100
+console.log("count of odd numbers are", oddN); //10
+
+// for (let i = 0; i < numbers2.length; i++) {
+//   if (numbers2[i] % 2 !== 0) {
+//     sumOdd = sumOdd + numbers2[i];
+//   }
+// }
+// console.log(sumOdd);
