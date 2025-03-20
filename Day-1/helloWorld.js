@@ -4,6 +4,7 @@ console.log("Monica Lee");
 console.log(123);
 console.log("hello", "world");
 console.log("hello", "i am", 26);
+
 //2/20/2025
 // Primitive Data Types in JavaScript
 //1.Strings: in quotes ""

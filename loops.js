@@ -805,3 +805,53 @@ console.log("count of odd numbers are", oddN); //10
 //   }
 // }
 // console.log(sumOdd);
+//A&B testing ppt
+
+// Homework
+// Problem 1
+const names = ["Alice", "Bob", "Charlie", "David"];
+// Create a function greetUser that takes a name and prints Hi[name]!
+// Use forEach to call greetUser() for each element in the array.
+const greetUser = (name1) => {
+  console.log("Hi, " + name1 + "!");
+};
+names.forEach(greetUser);
+// Problem 2
+const pricesUSD = [100, 50, 200, 400];
+// Create a function convertCurrency that converts prices from USD to EUR (1 USD = 0.85 EUR).
+// Use forEach to apply this function to each price in the array.
+const usdToEuro = 0.85;
+const convertCurrency = (price) => {
+  const euro = price * usdToEuro;
+  console.log(euro);
+};
+pricesUSD.forEach(convertCurrency);
+// Problem 3
+const products = [
+  { name: "Laptop", price: 999 },
+  { name: "Mouse", price: 50 },
+  { name: "Keyboard", price: 80 },
+];
+// Create a function displayProduct that prints the name and price of a product.
+// Use forEach to apply this function to each product in the array.
+const displayProduct = (product) => {
+  console.log("name", product.name, "price", product.price);
+  console.log(`Name: ${product.name}, Price: $${product.price}`);
+};
+products.forEach(displayProduct);
+
+// Problem 4
+const users = [
+  { name: "Alice", active: true },
+  { name: "Bob", active: false },
+  { name: "Charlie", active: true },
+  { name: "David", active: false },
+];
+// Use forEach to loop through an array of users and print only the active ones.
+const activeUser = [];
+users.forEach((user) => {
+  if (user.active) {
+    activeUser.push(user.name);
+  }
+});
+console.log(activeUser); //['Alice', 'Charlie']

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List</title>
+    <style>
+      #wrapper {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div>
+        <h1>Student List</h1>
+        <ul id="student-list"></ul>
+      </div>
+      <div>
+        <h1>Course List</h1>
+        <ul id="course-list"></ul>
+      </div>
+      <div>
+        <h1>Enrolled Details</h1>
+        <ul id="course-details"></ul>
+      </div>
+    </div>
+
+    <script>
+      function fetchStudentData() {
+        const studentList = document.getElementById("student-list");
+        fetch("http://localhost:4000/api")
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            data.forEach((student) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = student.firstName + " " + student.lastName;
+              studentList.appendChild(listItem);
+            });
+          });
+      }
+      function fetchCourseData() {
+        // const courses = [{subject: "math", id: 1}, {subject: "english"}, {subject: "history"}]
+        const courseList = document.getElementById("course-list");
+        fetch("http://localhost:4000/api/classes")
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            data.classes.forEach((course) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = course.subject;
+              listItem.setAttribute("data-id", course.id);
+              listItem.addEventListener("click", function () {
+                fetchCourseDetails(course.id);
+              });
+              courseList.appendChild(listItem);
+            });
+          });
+      }
+
+      function fetchCourseDetails(courseId) {
+        console.log("button is clicked!", courseId);
+        const courseDetails = document.getElementById("course-details");
+      }
+
+      fetchStudentData();
+      fetchCourseData();
+
+      function fetchCourseDetails(courseId) {
+        const courseDetails = document.getElementById("course-details");
+        fetch(`http://localhost:4000/api/classes/${courseId}`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log("what is course by id", data);
+            data.classMates.forEach((classMate) => {
+              const listItem = document.createElement("li");
+              listItem.textContent =
+                classMate.firstName + " " + classMate.lastName;
+              courseDetails.appendChild(listItem);
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

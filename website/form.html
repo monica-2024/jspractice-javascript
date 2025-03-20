@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Form</title>
+  </head>
+  <body>
+    <form id="classForm">
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required /><br /><br />
+
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required></textarea><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+
+        const subject = document.getElementById("subject").value;
+        const content = document.getElementById("content").value;
+
+        const body = {
+          subject: subject,
+          content: content,
+        };
+
+        console.log(body);
+        fetch("http://localhost:4000/api/classes/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        });
+      }
+
+      document
+        .getElementById("classForm")
+        .addEventListener("submit", submitForm);
+    </script>
+  </body>
+</html>

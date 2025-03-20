@@ -23,13 +23,11 @@ console.log("I wish I were 29");
 
 // 3️⃣ Mixing Strings & Numbers
 //    Print "My name is [your name] and I am [your age] years old."
-console.log("This assignment has been done with", "1", "and", "2");
+console.log("This assignment has been done with" + 1 + "and" + 2);
 //    Print "The current year is 2025, and next year will be 2026." using numbers inside console.log().
 console.log(
-  "The current year is",
-  "2025",
-  "and next year will be",
-  "2026",
+  "The current year is" + "2025",
+  "and next year will be" + "2026",
   "which will be better than current year."
 );
 //2/21/2025
