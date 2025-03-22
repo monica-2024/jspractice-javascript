@@ -271,3 +271,127 @@ if (foodPrice.price > 150) {
 } else {
   console.log("This", foodPrice.name, "is a cheap item");
 }
+
+//3/22/2025
+const classmates = [
+  {
+    id: 1,
+    firstName: "River",
+    lastName: "Auer",
+    occupation: "Future Optimization Representative",
+    city: "Bethesda",
+    class: {
+      id: 4,
+      subject: "Korean Class",
+      content: "learn korean language and culture",
+    },
+  },
+  {
+    id: 2,
+    firstName: "Phil",
+    lastName: "Lee",
+    occupation: "SWE",
+    city: "Washington, DC",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 3,
+    firstName: "Laurianne",
+    lastName: "Rolfson",
+    occupation: "Future Optimization Agent",
+    city: "Bennetthaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 4,
+    firstName: "Saul",
+    lastName: "Bartell",
+    occupation: "Internal Research Technician",
+    city: "Yazminhaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 5,
+    firstName: "Orlando",
+    lastName: "Harris",
+    occupation: "District Accountability Specialist",
+    city: "Clemenscester",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 6,
+    firstName: "Vesta",
+    lastName: "Kuhlman",
+    occupation: "Customer Functionality Developer",
+    city: "Berkeley",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 7,
+    firstName: "Gretchen",
+    lastName: "Hackett",
+    occupation: "Direct Implementation Designer",
+    city: "New Lydiaborough",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 8,
+    firstName: "Roger",
+    lastName: "Schuster",
+    occupation: "Product Mobility Director",
+    city: "East Sibyl",
+    class: {
+      id: 3,
+      subject: "Basic Computer Skill",
+      content: "very basic to advanced computer skills",
+    },
+  },
+];
+
+// using the classmates array and a for loop (your choice of loops),
+// return the first and last name of everyone who is taking the "5months QA bootcamp"
+//create a function called `getNamesForQaClass`
+
+function getNamesForQaClass(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].class === "5months QA bootcamp") {
+      console.log(array[i].firstName, array[i].lastName);
+    }
+  }
+}
+getNamesForQaClass(classmates);
+
+function getNamesForQaClass(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].class === "5months QA bootcamp") {
+      console.log(array[i].firstName, array[i].lastName);
+    }
+  }
+}
+
+// Call the function
+getNamesForQaClass(classmates);

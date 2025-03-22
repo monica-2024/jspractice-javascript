@@ -855,3 +855,239 @@ users.forEach((user) => {
   }
 });
 console.log(activeUser); //['Alice', 'Charlie']
+
+const classmates = [
+  {
+    id: 1,
+    firstName: "River",
+    lastName: "Auer",
+    occupation: "Future Optimization Representative",
+    city: "Bethesda",
+    class: {
+      id: 4,
+      subject: "Korean Class",
+      content: "learn korean language and culture",
+    },
+  },
+  {
+    id: 2,
+    firstName: "Phil",
+    lastName: "Lee",
+    occupation: "SWE",
+    city: "Washington, DC",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 3,
+    firstName: "Laurianne",
+    lastName: "Rolfson",
+    occupation: "Future Optimization Agent",
+    city: "Bennetthaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 4,
+    firstName: "Saul",
+    lastName: "Bartell",
+    occupation: "Internal Research Technician",
+    city: "Yazminhaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 5,
+    firstName: "Orlando",
+    lastName: "Harris",
+    occupation: "District Accountability Specialist",
+    city: "Clemenscester",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 6,
+    firstName: "Vesta",
+    lastName: "Kuhlman",
+    occupation: "Customer Functionality Developer",
+    city: "Berkeley",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 7,
+    firstName: "Gretchen",
+    lastName: "Hackett",
+    occupation: "Direct Implementation Designer",
+    city: "New Lydiaborough",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 8,
+    firstName: "Roger",
+    lastName: "Schuster",
+    occupation: "Product Mobility Director",
+    city: "East Sibyl",
+    class: {
+      id: 3,
+      subject: "Basic Computer Skill",
+      content: "very basic to advanced computer skills",
+    },
+  },
+];
+
+// using the classmates array and a for loop (your choice of loops),
+// return the first and last name of everyone who is taking the "5months QA bootcamp"
+//create a function called `getNamesForQaClas
+
+// function getNamesForQaClass(array) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i].class.content === "5months QA bootcamp") {
+//       console.log(array[i].firstName, array[i].lastName);
+//     }
+//   }
+// }
+// getNamesForQaClass(classmates);//Phil Lee, Orlando Harris
+const getNamesForQaClass = (classmates) => {
+  const names = [];
+
+  // Loop through each student in the classmates array
+  classmates.forEach((student) => {
+    // Check if the student's class content is '5months QA bootcamp'
+    if (student.class.content === "5months QA bootcamp") {
+      // Push the student's full name to the names array
+      names.push(student.firstName + " " + student.lastName);
+    }
+  });
+
+  return names;
+};
+console.log(getNamesForQaClass(classmates));
+
+//create a function called getNamesForClass (classmates,classId)
+//return all names (first,last) of students that match the classId
+const getNamesForClass = (classmates, classId) => {
+  const names = [];
+
+  // Loop through each student in the classmates array
+  classmates.forEach((student) => {
+    // Check if the student's classId matches the provided classId
+    if (student.class.id === classId) {
+      // Push the student's full name (first + last) to the names array
+      names.push(student.firstName + " " + student.lastName);
+    }
+  });
+
+  return names;
+};
+// const classIdToMatch = 3;
+// console.log(getNamesForClass(classmates, classIdToMatch)); //[Roger Shuster ]
+console.log(getNamesForClass(classmates, 2));
+
+//create a function that uses a map with classmates,
+//return an array of cities for where class id is 2
+//use filter
+
+// Bonus Challenge
+// after filter, you will get new Array variable
+// using that array with .map() to get only `cities`
+
+// const getCitiesByClass1 = (classmates, classId) => {
+//   return classmates.map((classmate) => {
+//     if (classmate.classId === classId) {
+//       return classmate.city;
+//     }
+//   });
+// };
+
+// console.log(getCitiesByClass1(classmates, 2));
+
+const getCitiesByClass = (classmates, classId) => {
+  return classmates
+    .filter((classmate) => classmate.class.id === classId)
+    .map((classmate) => classmate.city);
+};
+console.log(getCitiesByClass(classmates, 2)); //[ 'Bennetthaven', 'Yazminhaven', 'Berkeley', 'New Lydiaborough' ]
+// Bonus Challenge
+// after filter, you will get new Array variable
+// using that array with .map() to get only `cities`
+
+const getCitiesByClass3 = (classmates, classId) => {
+  // First filter to get the correct classmates
+  const filteredClassmates = classmates.filter(
+    (classmate) => classmate.class.id === classId
+  );
+
+  // Then map the filtered array to get only the cities
+  return filteredClassmates.map((classmate) => classmate.city);
+};
+
+console.log(getCitiesByClass3(classmates, 2));
+// Output: ['New Lydiaborough', 'Chicago']
+
+//using classmates, create a function that uses map to return an array of objects, but just id, firstName and lastName
+
+const getClassmates = (classmates) => {
+  return classmates.map(({ id, firstName, lastName }) => ({
+    id,
+    firstName,
+    lastName,
+  }));
+};
+console.log(getClassmates(classmates));
+// output should be like
+// [{id: x, firstName: xxx, lastName: xxx}, {id: y, firstName: yyy, lastName: yyy}]
+
+// Bonus Challenge
+// [{id: x, firstName: xxx, lastName: xxx, classId: z}, {id: y, firstName: yyy, lastName: yyy, classId: z}]
+
+const getClassmatesAll = (classmates) => {
+  return classmates.map(
+    ({ id, firstName, lastName, class: { id: classId } }) => ({
+      id,
+      firstName,
+      lastName,
+      classId,
+    })
+  );
+};
+console.log(getClassmatesAll(classmates));
+
+const numArr3 = [
+  46, 39, 48, 21, 56, 82, 69, 92, 97, 51, 66, 69, 12, 6, 39, 8, 13, 1, 53, 31,
+];
+//   using .map() and return "<number> is Odd"
+//    if number is Odd otherwise "<number> is Even"
+//expected output => ["46 is Even", "39 is Odd", ...]
+const result = numArr.map((num) => {
+  if (num % 2 === 0) {
+    return "num is " + num + " Even"; // Concatenate "Even" for even numbers
+  }
+  return "num is " + num + " Odd"; // Concatenate "Odd" for odd numbers
+});
+
+console.log(result);
+
+const even = [1, 2, 3].filter((num) => {
+  return num % 2 === 0;
+});
+console.log(even);
