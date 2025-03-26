@@ -1091,3 +1091,163 @@ const even = [1, 2, 3].filter((num) => {
   return num % 2 === 0;
 });
 console.log(even);
+
+//3/25/2025
+//create a function called sumNumbers
+//it takes 2 arguments and returns their sum
+//eg: sumNumbers
+//return 11
+const sumNumbers = (num1, num2) => {
+  return num1 + num2;
+};
+console.log(sumNumbers(5, 6)); //11
+
+// create a fuction called findName
+// it will take an array of names (as a string) and the name you want to search
+// and return true if the name is in the array
+// or false, if it is not
+// eg: findName(['bob', 'mike', 'ben', 'phil'], 'phil')
+// returns true
+const findName = (array, name) => {
+  return array.includes(name);
+};
+console.log(findName(["bob", "mike", "ben", "phil"], "phil")); //true
+
+const findName2 = (array, name) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === name) {
+      return true; //break early than forEach
+    }
+  }
+  return false;
+};
+console.log(findName2(["bob", "mike", "ben", "phil"], "monica")); //false
+
+const findName1 = (arrayOfNames, name) => {
+  let result = false;
+  arrayOfNames.forEach((n) => {
+    if (n === name) {
+      result = true; //will continue to look name, each name no matter what
+    }
+  });
+  return result;
+};
+console.log(findName1(["bob", "mike", "ben", "phil"], "monica")); //false
+
+const classmates1 = [
+  {
+    id: 1,
+    firstName: "River",
+    lastName: "Auer",
+    occupation: "Future Optimization Representative",
+    city: "Bethesda",
+    class: {
+      id: 4,
+      subject: "Korean Class",
+      content: "learn korean language and culture",
+    },
+  },
+  {
+    id: 2,
+    firstName: "Phil",
+    lastName: "Lee",
+    occupation: "SWE",
+    city: "Washington, DC",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 3,
+    firstName: "Laurianne",
+    lastName: "Rolfson",
+    occupation: "Future Optimization Agent",
+    city: "Bennetthaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 4,
+    firstName: "Saul",
+    lastName: "Bartell",
+    occupation: "Internal Research Technician",
+    city: "Yazminhaven",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 5,
+    firstName: "Orlando",
+    lastName: "Harris",
+    occupation: "District Accountability Specialist",
+    city: "Clemenscester",
+    class: {
+      id: 1,
+      subject: "QA",
+      content: "5months QA bootcamp",
+    },
+  },
+  {
+    id: 6,
+    firstName: "Vesta",
+    lastName: "Kuhlman",
+    occupation: "Customer Functionality Developer",
+    city: "Berkeley",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 7,
+    firstName: "Gretchen",
+    lastName: "Hackett",
+    occupation: "Direct Implementation Designer",
+    city: "New Lydiaborough",
+    class: {
+      id: 2,
+      subject: "Kids Coding",
+      content: "kids after-school coding class",
+    },
+  },
+  {
+    id: 8,
+    firstName: "Roger",
+    lastName: "Schuster",
+    occupation: "Product Mobility Director",
+    city: "East Sibyl",
+    class: {
+      id: 3,
+      subject: "Basic Computer Skill",
+      content: "very basic to advanced computer skills",
+    },
+  },
+];
+//create a function called getStudentForSubject which takes in the
+//the classmates array and a subject, it should return an array of student
+//objects that only contain the subject you requested
+
+const getStudentForSubject = (classmates, subject) => {
+  return classmates.filter((student) => student.class.subject === subject);
+};
+console.log(getStudentForSubject(classmates, "Korean Class")); //id1
+
+const getStudentForSubject1 = (classmates, subject) => {
+  const result = [];
+  for (let i = 0; i < classmates.length; i++) {
+    if (classmates[i].class.subject === subject) {
+      result.push(classmates[i]);
+    }
+  }
+  return result;
+};
+console.log(getStudentForSubject1(classmates1, "Korean Class"));
